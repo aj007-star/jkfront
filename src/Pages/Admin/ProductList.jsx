@@ -26,7 +26,7 @@ function ProductList() {
     const [hasMore, setHasMore] = useState(true);
 
 
-console.log(products)
+console.log(products, "sdf")
 
     const fetchProducts = async (page) => {
         setLoading(true);
@@ -191,7 +191,7 @@ console.log(products)
                                         <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-200 group-hover:opacity-75">
                                             <img
                                                 alt="product"
-                                                src={`http://localhost:3000${product.productImages[0]}`}
+                                                src={`http://localhost:3000${JSON.parse(product.productImages)[0]}`}
                                                 className="h-full w-full object-cover object-center"
                                             />
                                         </div>

@@ -12,7 +12,7 @@ const UserPage = () => {
     return (
         <Routes>
             <Route path="/" element={<UserHome />} />
-            <Route path="/category" element={<Category />} />
+            <Route path="/category/:id" element={<Category />} />
             <Route path="/product-detail/:id" element={<ProductDetail />} />
             <Route path="/checkout" element={<Address />} />
             <Route path="/order-summary" element={<OrderSummary />} />

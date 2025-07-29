@@ -32,9 +32,9 @@ export default function ProductDetail() {
     const [selectedSize, setSelectedSize] = useState('');
     const [allProducts, setAllProducts] = useState([]);
     const [similarProducts, setSimilarProducts] = useState([]);
-    const addToCartLength = useSelector(state=>state.AllStore.addToCart);
+    const addToCartLength = useSelector(state => state.AllStore.addToCart);
     const productDetail = useSelector(state => state.AllStore.productdetail);
-    const [productMainImage, setProductMainImage] = useState(import.meta.env.VITE_BASE_URL + productDetail.productImages[0]);
+    const [productMainImage, setProductMainImage] = useState(import.meta.env.VITE_BASE_URL + JSON.parse(productDetail.productImages)[0]);
 
     const fetchProductBySimilar = async () => {
         setIsLoading(true);
@@ -83,8 +83,9 @@ export default function ProductDetail() {
         }
     }
 
-    const handleBuyButton = ()=>{
-        dispatch(addProductToCart({...productDetail,selectedSize,selectedColor}));
+    const handleBuyButton = () => {
+        console.log({ ...productDetail, selectedSize, selectedColor }, selectedSize, "fdd")
+        dispatch(addProductToCart({ ...productDetail, selectedSize, selectedColor }));
         navigate('/checkout');
     }
 
@@ -103,7 +104,7 @@ export default function ProductDetail() {
                         <IoSearch className='text-[20px]' />
                     </button>
                     <div className="relative">
-                        <button onClick={()=>navigate('/order-summary')} className="text-[22px]">
+                        <button onClick={() => navigate('/order-summary')} className="text-[22px]">
                             <FaCartPlus />
                         </button>
                         <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
@@ -136,7 +137,7 @@ export default function ProductDetail() {
                                 <p className='text-[14px] mr-1'>Color: </p>
                                 <div className='flex gap-1'>
                                     {
-                                        productDetail.color.split(',').map((va,index) => (
+                                        productDetail.color.split(',').map((va, index) => (
                                             <p key={index} onClick={() => setSelectedColor(va)} className={`text-[14px] p-1 rounded-md border ${va === selectedColor && 'bg-amber-300'}`}>{va}</p>
                                         ))
                                     }
@@ -151,7 +152,7 @@ export default function ProductDetail() {
                     <div className='overflow-auto'>
                         <div className='px-[12px] pb-1 flex w-full'>
                             {
-                                productDetail.productImages.map((val, index) => (
+                                JSON.parse(productDetail.productImages).map((val, index) => (
                                     <div
                                         key={index}
                                         onClick={() => setProductMainImage(import.meta.env.VITE_BASE_URL + val)}
@@ -221,7 +222,7 @@ export default function ProductDetail() {
                             </div>
                         </div>
                         <div className='flex items-center gap-2'>
-                            {productDetail.size !== '' ? (productDetail.size.split(',').map((va,index) => (
+                            {productDetail.size !== '' ? (productDetail.size.split(',').map((va, index) => (
                                 <button key={index} onClick={() => setSelectedSize(va)} className={`w-[50px] h-[50px] relative rounded-full border-[#000] border-[1px] flex justify-center items-center text-[#000] text-[18px] ${va === selectedSize && 'bg-black'}`}>
                                     <span className={`block text-[14px] mt-[-2px]  ${va === selectedSize && 'text-white'}`}>{va}</span>
                                 </button>
@@ -277,9 +278,9 @@ export default function ProductDetail() {
                         </div>
                         <div className='flex overflow-auto gap-2 px-[16px] pb-4'>
                             {similarProducts.map((data, index) =>
-                                <div key={index} onClick={()=>handleDetailProduct(data.productId)} className="flex flex-col border-[.5px] border-gray-200 lg:rounded-md bg-white min-w-[148px] w-full rounded">
+                                <div key={index} onClick={() => handleDetailProduct(data.productId)} className="flex flex-col border-[.5px] border-gray-200 lg:rounded-md bg-white min-w-[148px] w-full rounded">
                                     <div className='relative px-[14px]'>
-                                        <img src={import.meta.env.VITE_BASE_URL + data.productImages[0]} alt="T-shirt" className="w-full sm:h-[300px] h-[163px] object-cover object-top" />
+                                        <img src={import.meta.env.VITE_BASE_URL + JSON.parse(data.productImages)[0]} alt="T-shirt" className="w-full sm:h-[300px] h-[163px] object-cover object-top" />
                                     </div>
                                     <div className="flex flex-col p-[10px_4px_8px_8px] overflow-hidden">
                                         <p className='text-[10px] text-[#b8bbbf]'>Sponsered</p>
@@ -353,9 +354,9 @@ export default function ProductDetail() {
                     </div>
                     <div className='grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 lg:gap-[30px] max-w-[1600px] mx-auto sm:px-[40px] md:my-[30px]'>
                         {allProducts.map((data, index) =>
-                            <div onClick={()=>handleDetailProduct(data.productId)} key={index} className="flex flex-col border-[.5px] border-gray-200 lg:rounded-md bg-white">
+                            <div onClick={() => handleDetailProduct(data.productId)} key={index} className="flex flex-col border-[.5px] border-gray-200 lg:rounded-md bg-white">
                                 <div className='relative'>
-                                    <img src={import.meta.env.VITE_BASE_URL + data.productImages[0]} alt="T-shirt" className="w-full sm:h-[300px] h-[250px] object-cover object-top" />
+                                    <img src={import.meta.env.VITE_BASE_URL + JSON.parse(data.productImages)[0]} alt="T-shirt" className="w-full sm:h-[300px] h-[250px] object-cover object-top" />
                                     <button className='text-[#fff] text-[24px] absolute right-[8px] top-[8px] heart-icon'><IoHeart /></button>
                                 </div>
                                 <div className="flex flex-col p-[10px_4px_8px_8px] overflow-hidden">
@@ -386,7 +387,7 @@ export default function ProductDetail() {
                     </div>
                 </div>
                 <div className='flex items-center w-full fixed bottom-0'>
-                    <button onClick={()=>dispatch(addProductToCart({...productDetail,selectedSize,selectedColor}))} className='h-[50px] bg-white text-center flex justify-center items-center w-1/2'>Add to cart</button>
+                    <button onClick={() => dispatch(addProductToCart({ ...productDetail, selectedSize, selectedColor }))} className='h-[50px] bg-white text-center flex justify-center items-center w-1/2'>Add to cart</button>
                     <button onClick={handleBuyButton} className='h-[50px] bg-[#ffc200] text-center flex justify-center items-center w-1/2'>Buy now</button>
                 </div>
             </div>)

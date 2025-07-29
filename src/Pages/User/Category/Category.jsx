@@ -12,18 +12,22 @@ import Toprated from '/Images/category/top-rated.jpeg';
 import NewArrive from '/Images/category/new-arrive.png';
 import ProductLogo from '/Images/product-logo.png';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import api from '../../../Utils/api'
 import { calculateDiscountPercentage, formatToINR, generateRandomNumber } from '../../../Utils/function';
 import NoMoreProducts from '../../../Components/Reusable/NoMoreProducts';
 import Spinner from '../../../Components/Reusable/Spinner';
 import { addProductDetail } from '../../../ReduxToolKit/AllSlice';
 import { FaCartPlus } from 'react-icons/fa6';
+import { split } from 'postcss/lib/list';
 
 
 
 export default function Category() {
-
+    const { id } = useParams();
+    const commonData = split(id, "-");
+    console.log(commonData,"dfdfedf")
+    
     const categories = useSelector(state => state.AllStore.categories);
     const categoryPage = useSelector(state => state.AllStore.categoryPage);
     const [pageDetail, setPageDetail] = useState({});
@@ -34,7 +38,7 @@ export default function Category() {
     const dispatch = useDispatch();
     const [isLoading, setIsLoading] = useState(false);
     const [hasMore, setHasMore] = useState(true);
-    const addToCartLength = useSelector(state=>state.AllStore.addToCart);
+    const addToCartLength = useSelector(state => state.AllStore.addToCart);
 
 
 
@@ -47,9 +51,10 @@ export default function Category() {
                     const response = await api.get(`/products?pageNumber=${pageNumber}`);
                     data = response.data.data;
                 } else {
-                    const response = await api.get(`/category/${categoryPage}?pageNumber=${pageNumber}`);
+                    const response = await api.get(`/category/${commonData[0]}?pageNumber=${pageNumber}`);
                     data = response.data.data;
                 }
+                console.log(data, "sfdsfd")
                 setProductCategory(prevProducts => [...prevProducts, ...data]);
             }
         } catch (error) {
@@ -61,6 +66,7 @@ export default function Category() {
     };
 
     useEffect(() => {
+
         setIsLoading(true);
         setTimeout(() => {
             fetchProductCategoryWise();
@@ -125,7 +131,7 @@ export default function Category() {
                     <button onClick={() => navigate(-1)} className='text-[24px] w-[42px] flex justify-center'><HiMiniArrowLeft /></button>
                     <div className='flex gap-[12px] items-center'>
                         <img src={Flipkart} alt='Flipkart' className='w-[23px]' />
-                        <p className='overflow-hidden text-[#212121] whitespace-nowrap'>{pageDetail.name}</p>
+                        <p className='overflow-hidden text-[#212121] whitespace-nowrap'>{commonData[1]}</p>
                     </div>
                 </div>
                 <div className='flex'>
@@ -133,7 +139,7 @@ export default function Category() {
                         <IoSearch className='text-[20px]' />
                     </button>
                     <div className="relative">
-                        <button onClick={()=>navigate('/order-summary')} className="text-[22px]">
+                        <button onClick={() => navigate('/order-summary')} className="text-[22px]">
                             <FaCartPlus />
                         </button>
                         <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
@@ -187,7 +193,7 @@ export default function Category() {
                 {productCategory.map((data, index) =>
                     <div onClick={() => handleDetailProduct(data.productId)} key={index} className="flex flex-col border-[.5px] border-gray-200 lg:rounded-md bg-white">
                         <div className='relative'>
-                            <img src={import.meta.env.VITE_BASE_URL + data.productImages[0]} alt="Product" className="w-full sm:h-[300px] h-[250px] object-fit" />
+                            <img src={import.meta.env.VITE_BASE_URL + JSON.parse(data.productImages)[0]} alt="Product" className="w-full sm:h-[300px] h-[250px] object-fit" />
                             <button className='text-[#fff] text-[24px] absolute right-[8px] top-[8px] heart-icon'><IoHeart /></button>
                         </div>
                         <div className="flex flex-col p-[10px_4px_8px_8px] overflow-hidden">

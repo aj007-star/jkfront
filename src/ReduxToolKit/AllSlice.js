@@ -30,10 +30,10 @@ export const AllSlice = createSlice({
         selectedColor,
         productImages
       } = action.payload;
-
+      
       const finalSize = selectedSize || size;
       const finalColor = selectedColor || color;
-
+console.log(selectedSize, selectedColor, "fdds")
       const productExists = state.addToCart.some(product => product.productId === productId);
       if (!productExists) {
         state.addToCart.push({
@@ -44,9 +44,21 @@ export const AllSlice = createSlice({
           color: finalColor,
           size: finalSize,
           quantity: 1,
-          mainImage: productImages[0]
+          mainImage: JSON.parse(productImages)[0]
+        });
+      }else{
+        state.addToCart.push({
+          productId,
+          productName,
+          price,
+          subprice,
+          color: finalColor,
+          size: finalSize,
+          quantity: 1,
+          mainImage: JSON.parse(productImages)[0]
         });
       }
+      
     },
     removeAddToCartProduct: (state, action) => {
       const index = state.addToCart.findIndex(item => item.productId === action.payload);

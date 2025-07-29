@@ -25,68 +25,78 @@ export default function UserHome() {
     };
     const SliderData = [
         {
-            img: "https://rukminim1.flixcart.com/fk-p-flap/480/210/image/cf11375bb7faa557.jpeg?q=20"
+            img: "https://rukminim2.flixcart.com/fk-p-flap/716/350/image/4129256db1490942.jpg?q=60"
         },
         {
-            img: 'https://rukminim1.flixcart.com/fk-p-flap/480/210/image/3aca078d54a69684.jpg?q=20'
+            img: 'https://rukminim2.flixcart.com/fk-p-flap/960/460/image/bb26535571f46160.jpeg?q=60'
         },
         {
-            img: 'https://rukminim1.flixcart.com/fk-p-flap/480/210/image/9b60c512f8f1702e.jpeg?q=20'
+            img: 'https://rukminim2.flixcart.com/fk-p-flap/960/460/image/3f838a657c29a495.jpeg?q=60'
         },
         {
-            img: 'https://rukminim1.flixcart.com/fk-p-flap/480/210/image/9ad071327d8e809d.jpeg?q=20'
+            img: 'https://rukminim2.flixcart.com/fk-p-flap/960/460/image/4b2f7135615125a6.jpeg?q=60'
         },
         {
-            img: 'https://rukminim1.flixcart.com/fk-p-flap/480/210/image/664b3101f9bd994a.jpeg?q=20'
+            img: 'https://rukminim2.flixcart.com/fk-p-flap/960/460/image/b1c0378d1bd85a37.jpeg?q=60'
         },
         {
-            img: 'https://rukminim1.flixcart.com/fk-p-flap/480/210/image/4aad095f9ca5ebd9.jpg?q=20'
+            img: 'https://rukminim2.flixcart.com/fk-p-flap/960/460/image/fc60b98c782400ee.jpg?q=60'
         },
         {
-            img: 'https://rukminim1.flixcart.com/fk-p-flap/480/210/image/97110748ab7d0435.jpeg?q=20'
+            img: 'https://rukminim2.flixcart.com/fk-p-flap/960/460/image/30d98a523f4bd85e.jpeg?q=60'
         },
     ]
     const ProductData = [
         {
-            img: 'https://rukminim1.flixcart.com/fk-p-flap/220/320/image/ff3b890d1c9e6ae7.jpg?q=90',
-            description: "All"
+            img: 'https://rukminim2.flixcart.com/fk-p-flap/126/126/image/ac8ae38a7d93283b.jpg?q=60',
+            name: "Mobile",
+            description: "1"
         },
         {
-            img: 'https://rukminim1.flixcart.com/fk-p-flap/220/320/image/e7b356efd1b6596d.jpg?q=90',
-            description: "Mobiles"
+            img: 'https://rukminim2.flixcart.com/fk-p-flap/126/126/image/240ecca6a557f30c.jpg?q=60',
+            name: "Grocery",
+            description: "2"
         },
         {
-            img: 'https://rukminim1.flixcart.com/fk-p-flap/220/320/image/7316131182d36e7c.jpg?q=90',
-            description: "Electronics"
+            img: 'https://rukminim2.flixcart.com/fk-p-flap/126/126/image/11425150b071f19d.jpg?q=60',
+            name: "Electronics",
+            description: "3"
         },
         {
-            img: 'https://rukminim1.flixcart.com/fk-p-flap/220/320/image/f78cecffccfce82b.jpg?q=90',
-            description: "Fashion"
+            img: 'https://rukminim2.flixcart.com/fk-p-flap/126/126/image/9f58cf265eb3c589.jpg?q=60',
+            name: "Fashion",
+            description: "4"
         },
         {
-            img: 'https://rukminim1.flixcart.com/fk-p-flap/220/320/image/b20d1fa39b012fd8.jpg?q=90',
-            description: "TVs & Appliances"
+            img: 'https://rukminim2.flixcart.com/fk-p-flap/126/126/image/51b0d5f9aabc2462.jpg?q=60',
+            name: "Appliances",
+            description: "5"
         },
         {
-            img: 'https://rukminim1.flixcart.com/fk-p-flap/220/320/image/c99cc03a4e01b6e4.jpg?q=90',
-            description: "Beauty & Food"
+            img: 'https://rukminim2.flixcart.com/fk-p-flap/106/106/image/8123975742d5c3ee.jpg?q=60',
+            name: "Beauty",
+            description: "6"
         },
         {
-            img: 'https://rukminim1.flixcart.com/fk-p-flap/220/320/image/9310ea1ac3ce9b7a.jpg?q=90',
-            description: "Smart Gadgest"
+            img: 'https://rukminim2.flixcart.com/fk-p-flap/106/106/image/d71e924a3d3c5ffa.jpg?q=60',
+            name: "Toys",
+            description: "7"
         },
         {
-            img: 'https://rukminim1.flixcart.com/fk-p-flap/220/320/image/a09927df565efce7.jpg?q=90',
-            description: "Home & Furniture"
+            img: 'https://rukminim2.flixcart.com/fk-p-flap/106/106/image/c632b839ac6d183e.jpg?q=60',
+            name: "Sports",
+            description: "8"
         },
         {
-            img: 'https://rukminim2.flixcart.com/fk-p-flap/440/640/image/fffcd07af7bb2adc.jpg?q=60',
-            description: "Grocery"
+            img: 'https://rukminim2.flixcart.com/fk-p-flap/106/106/image/63de2d8f2afd51cb.jpg?q=60',
+            name: "Home & Kitchen",
+            description: "9"
         },
         {
-            img: '/Images/three.png',
-            description: "More"
-        }
+            img: 'https://rukminim2.flixcart.com/fk-p-flap/106/106/image/e1b4ec56637b0ac0.jpg?q=60',
+            name: "Trendz",
+            description: "10"
+        },
     ]
     const dispatch = useDispatch();
     const categories = useSelector(state => state.AllStore.categories);
@@ -173,31 +183,32 @@ export default function UserHome() {
     return (
         <div className='bg-[#fff]'>
             <Navbar />
-            <div className='pt-[20px] bg-[#f9d6c0] mt-4'>
+            <div className='pt-[20px] bg-[#fff] mt-1 px-2'>
                 <div className='slider-main'>
                     <Slider {...settings}>
                         {SliderData.map((val, index) =>
                             <div key={index}>
-                                <img src={val.img} alt='slider-img' className='w-full' />
+                                <img src={val.img} alt='slider-img' className='w-full rounded-xl' />
                             </div>
                         )}
                     </Slider>
                 </div>
             </div>
-            <Link to={'/category'} className='flex items-center justify-center flex-wrap pb-[20px] bg-[#f9d6c0]'>
+            <div className='flex items-center justify-center flex-wrap pb-[20px] bg-[#fff]'>
                 {ProductData.map((val, index) => (
-                    <div key={index} className='text-center'>
+                    <div key={index} className='text-center' onClick={()=>navigate(`/category/${val.description+"-"+val.name}`)}>
                         <img
                             onClick={() => handleLinkClick(val.description)}
                             src={val.img}
                             alt="product"
                             className={`w-[70px] ${index === ProductData.length - 1 && 'w-[65px] opacity-70'}`}
                         />
+                        <p className="text-[10px] mt-1 font-semibold">{val.name}</p>
                         {index === ProductData.length - 1 && val.description === 'More' && <p className='text-xs font-semibold'>More</p>}
                     </div>
                 ))}
-            </Link>
-            <div className='flex justify-between items-center p-[12px_16px]'>
+            </div>
+            {/* <div className='flex justify-between items-center p-[12px_16px]'>
                 <h2 className='text-[#212121] font-semibold text-[17px]'>Recently Viewed Stores</h2>
                 <button className='bg-[#2a55e5] rounded-full w-[24px] h-[24px] flex justify-center items-center text-white text-[12px]'><FaChevronRight />
                 </button>
@@ -221,12 +232,12 @@ export default function UserHome() {
                     </div>
                     <p className='text-[#333333] text-[12px] mt-1 text-center object-top object-cover max-w-[100px] break-words'>Men's Shirt and Trouser Fabrics</p>
                 </Link>
-            </div>
-            <div className='grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 lg:gap-[30px] max-w-[1600px] mx-auto sm:px-[40px] md:my-[30px]'>
+            </div> */}
+            <div className='grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 lg:gap-[30px] max-w-[1600px] mx-auto sm:px-[40px] md:my-[30px] mt-2'>
                 {allProducts.map((data, index) =>
                     <div onClick={() => handleDetailProduct(data.productId)} key={index} className="flex flex-col border-[.5px] border-gray-200 lg:rounded-md bg-white">
                         <div className='relative'>
-                            <img src={import.meta.env.VITE_BASE_URL + data.productImages[0]} alt="T-shirt" className="w-full sm:h-[300px] h-[250px] object-cover object-top" />
+                            <img src={import.meta.env.VITE_BASE_URL + JSON.parse(data.productImages)[0]} alt="T-shirt" className="w-full sm:h-[300px] h-[250px] object-cover object-top" />
                             <button className='text-[#fff] text-[24px] absolute right-[8px] top-[8px] heart-icon'><IoHeart /></button>
                         </div>
                         <div className="flex flex-col p-[10px_4px_8px_8px] overflow-hidden">

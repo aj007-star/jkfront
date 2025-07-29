@@ -18,7 +18,7 @@ const OrderSummary = () => {
     const userAddress = useSelector(state => state.AllStore.userAddress);
     const addToCart = useSelector(state => state.AllStore.addToCart);
 
-
+console.log(addToCart,"gfh")
     const handleQuantityChange = (e, productId) => {
         dispatch(updateAddCartProduct({ productId, quantity: e.target.value }));
     }
